@@ -1,0 +1,24 @@
+.sliderCont{
+    position: relative;
+    margin: 0 auto;
+    background-color: aqua;
+    width: 500px;
+    height: 500px;
+}
+.prevButton,
+.nextButton{
+    position: absolute;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    font-size: xx-large;
+}
+.prevButton {
+    left: 10px;
+  }
+  
+  .nextButton {
+    right: 10px;
+  }
