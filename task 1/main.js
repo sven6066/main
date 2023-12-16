@@ -17,9 +17,9 @@ class Slider {
     renderSlides() {
         const slidesContainer = document.querySelector('.slides');
         this.images.forEach(image => {
-          const slide = document.createElement('img');
-        //   slide.classList.add('slide');
-          slide.src = image;
+          const slide = document.createElement('div');
+          slide.classList.add('slide');
+          slide.innerHTML = `<img src="${image}">`;
           slidesContainer.appendChild(slide);
         });
       }
