@@ -11,6 +11,39 @@ class Slider {
     constructor(images){
         this.images = images;
         this.currentSlider = 0;
+        this.slidesArr = []; // Добавляем массив для хранения DOM-элементов слайдов
+        this.renderSlides();
+        this.prevButton = document.querySelector('.prevButton');
+        this.prevButton.addEventListener('click', this.prevSlide.bind(this)); // Привязываем контекст this
+        this.updateSlider();
     }
-    
+
+    renderSlides() {
+        const slidesContainer = document.querySelector('.slides');
+        this.images.forEach(image => {
+          const slide = document.createElement('div');
+          slide.classList.add('slide');
+          slide.innerHTML = `<img src="${image}">`;
+          slidesContainer.appendChild(slide);
+          this.slidesArr.push(slide); // Сохраняем созданный слайд в массиве slides
+        });
+    }
+
+    prevSlide() {
+        this.currentSlider = (this.currentSlider - 1 + this.slidesArr.length) % this.slidesArr.length;
+        this.updateSlider();
+    }
+
+    updateSlider() {
+        this.slidesArr.forEach((slide, index) => {
+          if (index === this.currentSlider) {
+            slide.style.display = 'block';
+          } else {
+            slide.style.display = 'none';
+          }
+        });
+    }
 }
+
+
+const slider = new Slider(images);
