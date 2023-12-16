@@ -1,9 +1,10 @@
 .sliderCont{
     position: relative;
     margin: 0 auto;
-    background-color: aqua;
+    /* background-color: aqua; */
     width: 500px;
     height: 500px;
+    overflow: hidden;
 }
 .prevButton,
 .nextButton{
@@ -23,4 +24,10 @@
   
   .nextButton {
     right: 10px;
+  }
+  .slides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* //display: none; */
   }

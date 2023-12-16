@@ -14,7 +14,9 @@ class Slider {
         this.slidesArr = []; // Добавляем массив для хранения DOM-элементов слайдов
         this.renderSlides();
         this.prevButton = document.querySelector('.prevButton');
-        this.prevButton.addEventListener('click', this.prevSlide.bind(this)); // Привязываем контекст this
+        this.nextButton = document.querySelector('.nextButton');
+        this.prevButton.addEventListener('click', this.prevSlide.bind(this));
+        this.nextButton.addEventListener('click', this.nextSlide.bind(this));
         this.updateSlider();
     }
 
@@ -33,6 +35,10 @@ class Slider {
         this.currentSlider = (this.currentSlider - 1 + this.slidesArr.length) % this.slidesArr.length;
         this.updateSlider();
     }
+    nextSlide() {
+      this.currentSlider = (this.currentSlider + 1 + this.slidesArr.length) % this.slidesArr.length;
+      this.updateSlider();
+  }
 
     updateSlider() {
         this.slidesArr.forEach((slide, index) => {
